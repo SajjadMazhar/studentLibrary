@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student's Library</title>
+</head>
+<style>
+    #heading {
+        text-align: center;
+    }
+
+    table {
+        text-align: center;
+        margin: auto;
+    }
+    h1{
+        display: inline-block;
+    }
+    
+
+    button {
+        margin: 1%;
+    }
+    #tab1,#tab2,#tab3{
+        display: inline-block;   
+        margin-left: 50px; 
+        margin-right: 50px; 
+        
+    }
+    .container{
+        text-align: center;
+        padding: 5px;
+    }
+    
+    
+</style>
+
+<body>
+    <div id="heading">
+        <h1>My Library</h1>
+        <hr>
+        <div>
+            <form action="none.html">
+                <strong>Enter Book Name: </strong><input type="text" placeholder="Book Name" id="bookName">
+                <br><br>
+                <strong>Enter User Name: </strong><input type="text" placeholder="User" id="user">
+                <br>
+                <input type="radio" id="science" name="category" value="Science"> Science
+                <input type="radio" id="arts" name="category" value="Arts"> Arts
+                <input type="radio" id="computer" name="category" value="Computer"> Computer
+                <br>
+                <button id="add">Add</button><button id="return">Return</button>
+            </form>
+            <hr>
+        </div>
+    </div>
+    <div class="container">
+
+        <div id="tab3">
+            <table>
+                <h1>
+                    <p align="center">Available Books</p>
+                </h1>
+                <thead>
+                    <strong>
+                        <tr>
+                            <th>Book Name</th>
+                            <th>Category</th>
+        
+                        </tr>
+                    </strong>
+                </thead>
+                <tbody id="availBooks"></tbody>
+            </table>
+        </div>
+    
+            <div id="tab1">
+                <table>
+                    <h1>
+                        <p align="center">Issued Books</p>
+                    </h1>
+                    <thead>
+                        <strong>
+                            <tr>
+                                <th>Book Name</th>
+                                <th>Category</th>
+                            </tr>
+                        </strong>
+                    </thead>
+                    <tbody id="issuedBooks"></tbody>
+                </table>
+            </div>
+            <div id="tab2">
+                <table>
+                    <h1>
+                        <p align="center">Issued Users</p>
+                    </h1>
+                    <thead>
+                        <strong>
+                            <tr>
+                                <th>User(s)</th>
+                                <th>Book(s)</th>
+                            </tr>
+                        </strong>
+                    </thead>
+                    <tbody id="issuedUsers"></tbody>
+                </table>
+            </div>
+            
+            
+            
+    </div>
+</body>
+<script src="jsPractice/testLib.js"></script>
+
+</html>

@@ -5,37 +5,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <title>Student's Library</title>
 </head>
 <style>
+    body{
+        background-color: rgb(84, 156, 102);
+    }
     #heading {
         text-align: center;
     }
 
-    table {
-        text-align: center;
-        margin: auto;
-    }
-    h1{
+    h1 {
         display: inline-block;
+        margin: auto;
+        color: white;
     }
-    
+
+    p {
+        margin: 1px;
+    }
 
     button {
-        margin: 1%;
+        background-color: #10db87;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 32px;
+        text-decoration: none;
+        margin: 4px 10px;
+        cursor: pointer;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+
     }
-    #tab1,#tab2,#tab3{
-        display: inline-block;   
-        margin-left: 50px; 
-        margin-right: 50px; 
-        
+
+    .selectContainer {
+        position: relative;
+        font-family: Arial, Helvetica, sans-serif;
     }
-    .container{
+
+    select {
+        background-color: #26d47d;
+        border: none;
+        border-radius: 5px;
+        padding: 3px 32px;
+        text-decoration: none;
+        margin: 5px 2px;
+        cursor: pointer;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+
+    }
+
+    #tab1,
+    #tab2,
+    #tab3 {
+        display: inline-block;
+        margin-left: 50px;
+        margin-right: 50px;
+
+    }
+
+    .container {
         text-align: center;
         padding: 5px;
     }
-    
-    
+
+    #bookName,
+    #user {
+
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid #555;
+        box-shadow: 2px 2px 1px black;
+
+    }
+
+    strong {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size:150%;
+        color: white;
+    }
 </style>
 
 <body>
@@ -44,15 +95,23 @@
         <hr>
         <div>
             <form action="none.html">
-                <strong>Enter Book Name: </strong><input type="text" placeholder="Book Name" id="bookName">
+                <strong></strong><input type="text" placeholder="Enter Book Name" id="bookName">
                 <br><br>
-                <strong>Enter User Name: </strong><input type="text" placeholder="User" id="user">
+                <strong></strong><input type="text" placeholder="Enter User" id="user">
                 <br>
-                <input type="radio" id="science" name="category" value="Science"> Science
-                <input type="radio" id="arts" name="category" value="Arts"> Arts
-                <input type="radio" id="computer" name="category" value="Computer"> Computer
+
+                <div class="selectContainer">
+                    <select name="stream" id="selectors" class="form-select d-sm-inline-block w-25" aria-label="Default select example">
+                        <option selected>Choose Stream :</option>
+                        <option value="0">One</option>
+                        <option value="Science">Science</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Computer">Computer</option>
+                      </select>
+                    
+                </div>
                 <br>
-                <button id="add">Add</button><button id="return">Return</button>
+                <button id="add" type="button" class="btn btn-outline-light">Issue</button><button id="return" type="button" class="btn btn-outline-light">Return</button>
             </form>
             <hr>
         </div>
@@ -60,60 +119,64 @@
     <div class="container">
 
         <div id="tab3">
-            <table>
+            <table class="table table-dark table-striped">
                 <h1>
-                    <p align="center">Available Books</p>
+                    <p>Available Books</p>
                 </h1>
+                <hr>
                 <thead>
                     <strong>
                         <tr>
                             <th>Book Name</th>
                             <th>Category</th>
-        
+
                         </tr>
                     </strong>
                 </thead>
                 <tbody id="availBooks"></tbody>
             </table>
         </div>
-    
-            <div id="tab1">
-                <table>
-                    <h1>
-                        <p align="center">Issued Books</p>
-                    </h1>
-                    <thead>
-                        <strong>
-                            <tr>
-                                <th>Book Name</th>
-                                <th>Category</th>
-                            </tr>
-                        </strong>
-                    </thead>
-                    <tbody id="issuedBooks"></tbody>
-                </table>
-            </div>
-            <div id="tab2">
-                <table>
-                    <h1>
-                        <p align="center">Issued Users</p>
-                    </h1>
-                    <thead>
-                        <strong>
-                            <tr>
-                                <th>User(s)</th>
-                                <th>Book(s)</th>
-                            </tr>
-                        </strong>
-                    </thead>
-                    <tbody id="issuedUsers"></tbody>
-                </table>
-            </div>
-            
-            
-            
+
+        <div id="tab1">
+            <table class="table table-dark table-striped">
+                <h1>
+                    <p>Issued Books</p>
+                </h1>
+                <hr>
+                <thead>
+                    <strong>
+                        <tr>
+                            <th>Book Name</th>
+                            <th>Category</th>
+                        </tr>
+                    </strong>
+                </thead>
+                <tbody id="issuedBooks"></tbody>
+            </table>
+        </div>
+        <div id="tab2">
+            <table class="table table-dark table-striped">
+                <h1>
+                    <p>Issued Users</p>
+                </h1>
+                <hr>
+                <thead>
+                    <strong>
+                        <tr>
+                            <th>User(s)</th>
+                            <th>Book(s)</th>
+                        </tr>
+                    </strong>
+                </thead>
+                <tbody id="issuedUsers"></tbody>
+            </table>
+        </div>
+
+
+
     </div>
 </body>
-<script src="jsPractice/testLib.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="jsPractice/libraryProto.js"></script>
 
 </html>
